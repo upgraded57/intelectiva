@@ -1,0 +1,26 @@
+nav {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 4vw;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+
+  & ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+
+    & li a {
+      text-decoration: none;
+      color: inherit;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
