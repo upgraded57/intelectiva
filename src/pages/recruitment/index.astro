@@ -1,0 +1,223 @@
+---
+import "./recruitment.css";
+// Components
+import Layout from "../../layouts/Layout.astro";
+import SharedHero from "../../components/shared_hero/SharedHero.astro";
+import TitleText from "../../components/title_text/TitleText.astro";
+import Footer from "../../components/footer/Footer.astro";
+
+// Images
+import recruitment_hero from "../../images/hiring_hero_img.jpg";
+
+const downloadables = [
+  {
+    path: "#",
+    title: "equality & diversity",
+  },
+  {
+    path: "#",
+    title: "environmental policy",
+  },
+  {
+    path: "#",
+    title: "quality assurance",
+  },
+  {
+    path: "#",
+    title: "health and safety",
+  },
+  {
+    path: "#",
+    title: "grievance & complaints",
+  },
+  {
+    path: "#",
+    title: "ant-bribery/fraud",
+  },
+  {
+    path: "#",
+    title: "anti-slavery policy",
+  },
+];
+---
+
+<Layout>
+  <SharedHero
+    heading="We are Hiring"
+    subheading="Check out our current vacancies or fill the form to apply in advance."
+    bg={recruitment_hero}
+  />
+
+  <div class="empty_space"></div>
+  <div class="px">
+    <div class="recruitment_form">
+      <form>
+        <TitleText title="Personal Details" />
+        <div class="form_section">
+          <div class="form_row">
+            <div class="form_field">
+              <label for="title">
+                <p>Title</p>
+                <select name="title" id="title">
+                  <option value="option_1"> Available Position 1 </option>
+                  <option value="option_2"> Available Position 2 </option>
+                  <option value="option_3"> Available Position 3 </option>
+                  <option value="option_4"> Available Position 4 </option>
+                  <option value="option_5"> Available Position 5 </option>
+                  <option value="option_6"> Available Position 6 </option>
+                </select>
+              </label>
+            </div>
+
+            <div class="form_field">
+              <label for="first_name">
+                <p>First Name</p>
+                <input type="text" name="first_name" id="first_name" />
+              </label>
+            </div>
+          </div>
+
+          <div class="form_row">
+            <div class="form_field">
+              <label for="last_name">
+                <p>Last Name</p>
+                <input type="text" name="last_name" id="last_name" />
+              </label>
+            </div>
+            <div class="form_field">
+              <label for="email">
+                <p>Email Address</p>
+                <input type="email" name="email" id="email" />
+              </label>
+            </div>
+          </div>
+
+          <div class="form_row">
+            <div class="form_field">
+              <label for="phone">
+                <p>Phone Number</p>
+                <input type="text" inputmode="tel" name="phone" id="phone" />
+              </label>
+            </div>
+            <div class="form_field">
+              <label for="postal_code">
+                <p>Postal Code</p>
+                <input
+                  type="text"
+                  inputmode="numeric"
+                  name="postal_code"
+                  id="postal_code"
+                />
+              </label>
+            </div>
+          </div>
+
+          <div class="form_row">
+            <div class="form_field">
+              <label for="dob">
+                <p>date of birth</p>
+                <input type="date" inputmode="tel" name="dob" id="dob" />
+              </label>
+            </div>
+            <div class="form_field">
+              <label for="gender">
+                <p>Gender</p>
+                <select name="gender" id="gender">
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <TitleText title="Application Details" />
+        <div class="form_section">
+          <div class="form_row">
+            <div class="form_field">
+              <label for="position">
+                <p>Applying For</p>
+                <select name="position" id="position">
+                  <option value="position_1">Position 1</option>
+                  <option value="position_2">Position 2</option>
+                  <option value="position_3">Position 3</option>
+                  <option value="position_4">Position 4</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="form_field">
+              <label for="employment_status">
+                <p>Current Employment Status</p>
+                <input
+                  type="text"
+                  name="employment_status"
+                  id="employment_status"
+                />
+              </label>
+            </div>
+          </div>
+
+          <div class="form_row">
+            <div class="form_field">
+              <label for="start_date">
+                <p>Available Start Date</p>
+                <input type="date" name="start_date" id="start_date" />
+              </label>
+            </div>
+
+            <div class="form_field">
+              <label for="referral">
+                <p>How did you her about us?</p>
+                <input type="text" name="referral" id="referral" />
+              </label>
+            </div>
+          </div>
+          <div class="form_field">
+            <label for="cv">
+              <p>Upload CV</p>
+              <input type="file" name="cv" id="cv" />
+            </label>
+          </div>
+        </div>
+
+        <TitleText title="Educational Details" />
+
+        <div class="form_field">
+          <label for="intro">
+            <p>
+              TELL US ABOUT YOUR EDUCATION, GRADES, SUBJECT OF STUDY AND WHERE
+              YOU OBTAINED YOUR QUALIFICATIONS
+            </p>
+          </label>
+          <textarea name="intro" id="intro"></textarea>
+        </div>
+
+        <button type="submit">submit application</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="empty_space"></div>
+  <div class="px">
+    <TitleText title="Our Policies" />
+    <p>Click to download our recruitment policies here</p>
+    <div class="policies">
+      {downloadables.map((link) => <a href={link.path}>{link.title}</a>)}
+    </div>
+  </div>
+
+  <div class="empty_space"></div>
+  <Footer />
+</Layout>
+
+<script>
+  const applicationForm = document.querySelector("form");
+
+  applicationForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const entries = Object.fromEntries(new FormData(applicationForm));
+
+    console.log(entries);
+  });
+</script>
