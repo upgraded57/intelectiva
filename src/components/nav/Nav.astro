@@ -5,6 +5,29 @@ import logo from "../../images/logo.svg";
 import logo_alt from "../../images/logo_alt.svg";
 import burger_icon from "../../images/burger_icon.svg";
 import burger_close_btn from "../../images/burger_close_btn.svg";
+
+const navLinks = [
+  {
+    path: "/",
+    title: "Home",
+  },
+  {
+    path: "admissions",
+    title: "Admissions",
+  },
+  {
+    path: "recruitment",
+    title: "Recruitment",
+  },
+  {
+    path: "about",
+    title: "About",
+  },
+  {
+    path: "contact",
+    title: "Contact",
+  },
+];
 ---
 
 <nav>
@@ -22,18 +45,13 @@ import burger_close_btn from "../../images/burger_close_btn.svg";
         <Image src={burger_close_btn} alt="" width={22} />
       </div>
     </div>
-    <li>
-      <a href="/"> Home </a>
-    </li>
-    <li>
-      <a href="/about"> About </a>
-    </li>
-    <li>
-      <a href="/services"> Services </a>
-    </li>
-    <li>
-      <a href="/contact"> Contact </a>
-    </li>
+    {
+      navLinks.map((navlink) => (
+        <li>
+          <a href={navlink.path}> {navlink.title} </a>
+        </li>
+      ))
+    }
   </ul>
   <div class="burger">
     <Image src={burger_icon} alt="Intelectiva Logo" height={20} />
