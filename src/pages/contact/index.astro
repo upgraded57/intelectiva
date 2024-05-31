@@ -1,0 +1,108 @@
+---
+import "./contact.css";
+
+// Components
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import SharedHero from "../../components/shared_hero/SharedHero.astro";
+import Footer from "../../components/footer/Footer.astro";
+
+// Images
+import contact_hero from "../../images/contact_hero_img.jpg";
+import enquiry_img from "../../images/enquiry_img.jpg";
+import location_pin_icon from "../../images/Marker.svg";
+import envelope_icon from "../../images/Envelope.svg";
+import call_icon from "../../images/Phone.svg";
+
+const contactInfos = [
+  {
+    icon: location_pin_icon,
+    text: "10, York Road, London SE1 7ND",
+  },
+  {
+    icon: envelope_icon,
+    text: "admin@intelectiva.co.uk",
+  },
+  {
+    icon: call_icon,
+    text: "020 8310 5435",
+  },
+];
+---
+
+<Layout>
+  <SharedHero
+    heading="Contact Us"
+    subheading="Reach out to us. We're here to help you"
+    bg={contact_hero}
+  />
+
+  <div class="empty_space"></div>
+  <div class="px">
+    <div class="contact_infos">
+      {
+        contactInfos.map((contactInfo) => (
+          <div class="contact_info">
+            <Image
+              src={contactInfo.icon}
+              alt={contactInfo.text}
+              width={40}
+              height={40}
+            />
+            <p>{contactInfo.text}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="empty_space"></div>
+  <div class="enquiry">
+    <div class="enquiry_form">
+      <div class="form">
+        <h4>Enquiry Form</h4>
+        <p>
+          If you would like to find out more about our services or about joining
+          our team, get in touch! Our dedicated Operations Team will be happy to
+          assist you
+        </p>
+
+        <form>
+          <div class="form_label">
+            <label for="name">
+              <p>Name</p>
+              <input type="text" name="name" id="name" />
+            </label>
+          </div>
+          <div class="form_label">
+            <label for="email">
+              <p>Emal Address</p>
+              <input type="email" name="email" id="email" />
+            </label>
+          </div>
+          <div class="form_label">
+            <label for="phone">
+              <p>Phone Number</p>
+              <input type="text" inputmode="tel" name="phone" id="phone" />
+            </label>
+          </div>
+          <div class="form_label">
+            <label for="message">
+              <p>Message</p>
+              <textarea name="message" id="message"></textarea>
+            </label>
+          </div>
+
+          <button type="submit">send message</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="enquiry_img">
+      <Image src={enquiry_img} alt="Contact Us" />
+    </div>
+  </div>
+
+  <div class="empty_space"></div>
+  <Footer />
+</Layout>
