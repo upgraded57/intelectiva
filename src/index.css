@@ -8,6 +8,7 @@
 
 :root {
   --dark-blue-clr: #1d3a58;
+  --blue-clr: #00f1f6;
   --orange-clr: #ff4a87;
   --yellow-clr: #fec629;
   --black-clr: #3e4f58;
@@ -16,4 +17,84 @@
 body {
   font-family: "poppins", sans-serif;
   color: var(--black-clr);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 100px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+p,
+li {
+  font-size: 20px;
+}
+
+.empty_space {
+  height: 100px;
+}
+
+.px {
+  padding-inline: 4vw;
+  width: min(1100px, 100%);
+  margin-inline: auto;
+}
+
+@media screen and (max-width: 1040px) {
+  h1 {
+    font-size: 80px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 50px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  h4 {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  p,
+  li {
+    font-size: 16px;
+  }
+
+  .empty_space {
+    height: 50px;
+  }
 }

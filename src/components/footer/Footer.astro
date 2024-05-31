@@ -1,0 +1,77 @@
+---
+import "./footer.css";
+import { Image } from "astro:assets";
+import logo from "../../images/logo_alt.svg";
+import footer_icon_1 from "../../images/footer_icon_1.jpg";
+import footer_icon_2 from "../../images/footer_icon_2.jpg";
+import footer_icon_3 from "../../images/footer_icon_3.jpg";
+import footer_icon_4 from "../../images/footer_icon_4.jpg";
+import footer_icon_5 from "../../images/footer_icon_5.jpg";
+import footer_icon_6 from "../../images/footer_icon_6.jpg";
+
+const footerlinks = [
+  {
+    title: "Quick Links",
+    links: [
+      { path: "/", title: "Home" },
+      { path: "/about", title: "About Us" },
+      { path: "/contact", title: "Contact Us" },
+      { path: "/services", title: "Services" },
+      { path: "/recruitment", title: "Recruitment" },
+    ],
+  },
+  {
+    title: "Contact",
+    texts: [
+      "10, York Road, London SE1 7ND",
+      "admin@intelectiva.co.uk",
+      "020 8310 5435",
+    ],
+  },
+  {
+    title: "Social Media",
+    texts: ["Instagram", "X - Twitter", "Facebook"],
+  },
+];
+
+const licenseImgs = [
+  footer_icon_1,
+  footer_icon_2,
+  footer_icon_3,
+  footer_icon_4,
+  footer_icon_5,
+  footer_icon_6,
+];
+---
+
+<footer>
+  <div class="subfooter">
+    <div class="logo">
+      <Image src={logo} alt="Intelectiva Logo" />
+    </div>
+
+    <div class="links">
+      {
+        footerlinks.map((footerLink) => (
+          <div class="link">
+            <h4>{footerLink.title}</h4>
+            {footerLink.links
+              ? footerLink.links.map((link) => (
+                  <p>
+                    <a href={link.path}>{link.title}</a>
+                  </p>
+                ))
+              : footerLink.texts.map((text) => <p>{text}</p>)}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <div class="licenses">
+    {licenseImgs.map((image) => <Image src={image} alt="License" width={60} />)}
+  </div>
+  <div class="copy">
+    <p>&copy; 2024 Intelectiva. All rights reserved.</p>
+    <p>Privacy Policy</p>
+  </div>
+</footer>

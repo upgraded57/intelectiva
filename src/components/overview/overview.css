@@ -1,0 +1,15 @@
+.overview {
+  padding-inline: 4vw;
+  padding-block: 50px;
+  background: url("../../images/overview_img.jpg");
+  color: white;
+}
+
+.overview h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.overview p:not(:last-child) {
+  margin-bottom: 20px;
+}

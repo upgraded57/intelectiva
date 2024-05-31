@@ -1,30 +1,59 @@
 ---
-import "./nav.css"
+import { Image } from "astro:assets";
+import "./nav.css";
+import logo from "../../images/logo.svg";
+import logo_alt from "../../images/logo_alt.svg";
+import burger_icon from "../../images/burger_icon.svg";
+import burger_close_btn from "../../images/burger_close_btn.svg";
 ---
 
-
 <nav>
-<div class="logo">Intelectiva</div>
-<ul>
+  <div class="logo">
+    <a href="/">
+      <Image src={logo} alt="Intelectiva Logo" />
+    </a>
+  </div>
+  <ul>
+    <div class="burger_imgs">
+      <div class="logo">
+        <Image src={logo_alt} alt="Intelectiva Logo" />
+      </div>
+      <div class="burger_close_btn">
+        <Image src={burger_close_btn} alt="" width={22} />
+      </div>
+    </div>
     <li>
-    <a href="#">
-        Home
-    </a>    
+      <a href="/"> Home </a>
     </li>
     <li>
-    <a href="#">
-        About
-    </a>    
+      <a href="/about"> About </a>
     </li>
     <li>
-    <a href="#">
-        Services
-    </a>    
+      <a href="/services"> Services </a>
     </li>
     <li>
-    <a href="#">
-        Contact
-    </a>    
+      <a href="/contact"> Contact </a>
     </li>
-</ul>
+  </ul>
+  <div class="burger">
+    <Image src={burger_icon} alt="Intelectiva Logo" height={20} />
+  </div>
 </nav>
+
+<script>
+  const burger = document.querySelector(".burger");
+  const burger_close = document.querySelector(".burger_close_btn");
+  const nav = document.querySelector("nav ul");
+
+  burger.addEventListener("click", () => {
+    nav.classList.add("active");
+  });
+
+  burger_close.addEventListener("click", () => {
+    nav.classList.remove("active");
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) nav.classList.remove("active");
+  });
+</script>

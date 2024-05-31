@@ -1,0 +1,15 @@
+.hero {
+  width: 100vw;
+  padding-inline: 4vw;
+  height: 100dvh;
+  padding-top: 150px;
+  background: url("../../images/hero_img.jpg");
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hero .container {
+  width: min(800px, 100%);
+  color: #01325d;
+}

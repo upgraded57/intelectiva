@@ -1,0 +1,21 @@
+.about_us .px {
+  background: url("../../images/about_us_img.jpg");
+  width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+  padding-block: 50px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.about_us a {
+  padding: 10px 30px;
+  border-radius: 10px;
+  background: var(--blue-clr);
+  width: max-content;
+}
