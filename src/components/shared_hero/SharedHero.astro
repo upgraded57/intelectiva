@@ -1,0 +1,22 @@
+---
+const {
+  bg = herobg,
+  heading = "Heading",
+  subheading = "Some Subheading goes here ",
+} = Astro.props;
+
+import { Image } from "astro:assets";
+import herobg from "../../images/hero_img.jpg";
+import "./sharedhero.css";
+---
+
+<div class="shared_hero">
+  <div class="bg">
+    <Image src={bg} alt="Background Image" />
+  </div>
+
+  <div class="content">
+    <h1>{heading}</h1>
+    <h2>{subheading}</h2>
+  </div>
+</div>

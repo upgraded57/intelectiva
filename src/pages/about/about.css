@@ -1,0 +1,124 @@
+.about_summary {
+  width: 100%;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 35px -4px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.about_summary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to bottom, #ff5b7a, #ffb239);
+}
+
+.about_summary p:first-child {
+  margin-bottom: 20px;
+}
+
+.about_accent_image {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 100px;
+}
+
+.about_accent_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.values_showcase {
+  display: flex;
+  align-items: stretch;
+  gap: 50px;
+  margin-top: 30px;
+}
+
+.values_showcase_img {
+  flex-basis: 60%;
+  min-height: 500px;
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  background: url("../../images/values_img.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.values_showcase_texts {
+  flex-basis: 40%;
+}
+
+.values_showcase_text:first-child {
+  margin-bottom: 30px;
+}
+
+.goals {
+  padding-block: 50px;
+  background: var(--light-grey-clr);
+}
+
+.goal_cards {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+  margin-inline: auto;
+}
+
+.goal_card {
+  width: min(440px, 100%);
+  border-radius: 20px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 4px 35px -4px rgba(0, 0, 0, 0.15);
+}
+
+.goal_card span {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background: linear-gradient(to right, #ff5b7a, #ffb239);
+}
+
+.goal_card p {
+  padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .about_accent_image {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 50px;
+  }
+
+  .values_showcase {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .values_showcase_img {
+    min-height: 300px;
+  }
+
+  .goal_cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .goal_card span {
+    height: 70px;
+  }
+}

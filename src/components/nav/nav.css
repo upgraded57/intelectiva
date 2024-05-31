@@ -9,6 +9,7 @@ nav {
   top: 0;
   width: 100vw;
   z-index: 1000;
+  overflow-x: hidden;
   color: white;
 }
 
@@ -70,20 +71,20 @@ nav::before {
 
   nav ul {
     display: block;
-    position: absolute;
-    height: 100dvh;
+    position: fixed;
+    height: 100vh;
     width: 100%;
     background: white;
     color: var(--black-clr);
     top: 0;
-    left: -100%;
+    right: -100%;
     padding-top: 100px;
     gap: 0;
     transition: 0.2s;
   }
 
   nav ul.active {
-    left: 0;
+    right: 0;
   }
 
   nav ul li {

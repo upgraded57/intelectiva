@@ -1,4 +1,4 @@
-.about_us .px {
+.about_us {
   background: url("../../images/about_us_img.jpg");
   width: 100vw;
   background-size: cover;
@@ -7,6 +7,9 @@
   color: white;
   padding-block: 50px;
   text-align: center;
+}
+
+.about_us .px {
   display: flex;
   align-items: center;
   flex-direction: column;

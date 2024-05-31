@@ -7,16 +7,19 @@
 }
 
 :root {
-  --dark-blue-clr: #1d3a58;
+  --dark-blue-clr: #01325d;
   --blue-clr: #00f1f6;
   --orange-clr: #ff4a87;
   --yellow-clr: #fec629;
   --black-clr: #3e4f58;
+  --light-grey-clr: #f8f8f8;
 }
 
 body {
   font-family: "poppins", sans-serif;
   color: var(--black-clr);
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 a {

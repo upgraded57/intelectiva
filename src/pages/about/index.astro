@@ -1,7 +1,128 @@
 ---
+import "./about.css";
+import { Image } from "astro:assets";
+
+// Components
+import SharedHero from "../../components/shared_hero/SharedHero.astro";
+import Footer from "../../components/footer/Footer.astro";
+import Overview from "../../components/overview/Overview.astro";
 import Layout from "../../layouts/Layout.astro";
+import TitleText from "../../components/title_text/TitleText.astro";
+
+// Images
+import about_hero_img from "../../images/about_hero_img.jpg";
+import values_img from "../../images/values_img_bg.jpg";
+
+const values = [
+  {
+    title: "Diversity",
+    text: "We as a company strongly oppose all forms of discrimination and value working in a diverse workplace. Since we all share the same goals in life, we support one another as we develop",
+  },
+  {
+    title: "Team Strength",
+    text: "By utilising each other's talents and experiences to the fullest, INTELECTIVA has combined outstanding individual strengths into our corporate power. Global Dimension: We strive to ensure that ISO 9001, ISO 18001, and ISO 14001 compliance.",
+  },
+];
+
+const goals = [
+  {
+    title: "Our Objective",
+    text: "As a business, we help our clients succeed, and we're committed to providing courteous, professional, and innovative cleaning services with staff that is well certified and trained.",
+  },
+  {
+    title: "Our Goal",
+    text: "Our goal as a firm is to expand to the point where we can employ over 500 people to support our contractors. Furthermore, to establish APJ as a preferred workplace.",
+  },
+];
 ---
 
 <Layout>
-    <h1>About Page</h1>
+  <SharedHero
+    heading="About Us"
+    subheading="Get to know about who we are as a Company"
+    bg={about_hero_img}
+  />
+
+  <div class="empty_space"></div>
+  <div class="px">
+    <div class="about_summary">
+      <p>
+        As a facility management company with headquarters in London, we have
+        kept growing our network of cleaning and training facilities throughout
+        the city while offering highly valuable personnel supply services that
+        help our clients overcome their operational difficulties.
+      </p>
+
+      <p>
+        Since <strong> INTELECTIVA LTD </strong> was founded, all of our employees
+        have made it their mission to uphold proper work ethics, and we take great
+        pride in offering our clients exceptional services. We always prioritise
+        the demands and wishes of our clients, regardless of how complex the task
+        or how drawn out the procedure may be. Our company's primary objective is
+        to raise London's employment rates. We think that by generating jobs, we
+        are making a difference in people's lives.
+      </p>
+    </div>
+  </div>
+
+  <div class="empty_space"></div>
+  <div class="about_accent_image">
+    <Image src={values_img} alt="Happy People" />
+  </div>
+  <div class="epmty_space"></div>
+  <div class="values">
+    <div class="px">
+      <TitleText title="Our Values" />
+      <p>
+        To offer expert, top-notch services that are founded on our years of
+        industry knowledge and our superior work product.
+      </p>
+    </div>
+
+    <div class="px">
+      <div class="values_showcase">
+        <div class="values_showcase_img"></div>
+        <div class="values_showcase_texts">
+          {
+            values.map((value) => (
+              <div class="values_showcase_text">
+                <h4>{value.title}</h4>
+                <p>{value.text}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="empty_space"></div>
+  <div class="goals">
+    <div class="px">
+      <TitleText title="We Are Goal Driven!" />
+      <p>
+        We accelerate progress with customized online marketing, flexible
+        hiring, and innovative education
+      </p>
+
+      <div class="goal_cards">
+        {
+          goals.map((goal) => (
+            <div class="goal_card">
+              <span>
+                <h4>{goal.title}</h4>
+              </span>
+              <p>{goal.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <Overview />
+
+  <div class="empty_space"></div>
+
+  <Footer />
 </Layout>
