@@ -203,7 +203,13 @@ const downloadables = [
     <TitleText title="Our Policies" />
     <p>Click to download our recruitment policies here</p>
     <div class="policies">
-      {downloadables.map((link) => <a href={link.path}>{link.title}</a>)}
+      {
+        downloadables.map((link) => (
+          <a href={link.path} download="">
+            {link.title}
+          </a>
+        ))
+      }
     </div>
   </div>
 

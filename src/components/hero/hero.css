@@ -13,3 +13,7 @@
   width: min(800px, 100%);
   color: #01325d;
 }
+
+.hero h1 {
+  text-wrap: nowrap;
+}

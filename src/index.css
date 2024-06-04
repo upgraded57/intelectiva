@@ -15,6 +15,11 @@
   --light-grey-clr: #f8f8f8;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding: 50px;
+}
+
 body {
   font-family: "poppins", sans-serif;
   color: var(--black-clr);
@@ -75,11 +80,11 @@ li {
 
 @media screen and (max-width: 768px) {
   h1 {
-    font-size: 50px;
+    font-size: 40px;
   }
 
   h2 {
-    font-size: 22px;
+    font-size: 18px;
   }
 
   h3 {
