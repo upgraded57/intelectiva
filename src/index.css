@@ -58,6 +58,11 @@ li {
   font-size: 20px;
 }
 
+input,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
 .empty_space {
   height: 100px;
 }
