@@ -6,13 +6,18 @@ import SharedHero from "../../components/shared_hero/SharedHero.astro";
 import TitleText from "../../components/title_text/TitleText.astro";
 import Footer from "../../components/footer/Footer.astro";
 
+// docs
+import equality_doc from "../../docs/Equality and Diversity Policy.pdf";
+import environmental_doc from "../../docs/Enviromental Policy.pdf";
+import health_doc from "../../docs/Health and Safety Policy.pdf";
+
 const downloadables = [
   {
-    path: "#",
+    path: equality_doc,
     title: "equality & diversity",
   },
   {
-    path: "#",
+    path: environmental_doc,
     title: "environmental policy",
   },
   {
@@ -20,7 +25,7 @@ const downloadables = [
     title: "quality assurance",
   },
   {
-    path: "#",
+    path: health_doc,
     title: "health and safety",
   },
   {
@@ -202,7 +207,7 @@ const downloadables = [
     <div class="policies">
       {
         downloadables.map((link) => (
-          <a href={link.path} download="">
+          <a href={link.path} download>
             {link.title}
           </a>
         ))
