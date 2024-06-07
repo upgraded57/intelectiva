@@ -14,15 +14,12 @@ import Footer from "../components/footer/Footer.astro";
 import collaboration_img from "../images/collaboration_img.jpg";
 import education_img from "../images/education_img.jpg";
 import business_img from "../images/business_img.jpg";
-import service_img_1 from "../images/service_img_1.jpg";
-import service_img_2 from "../images/service_img_2.jpg";
-import service_img_3 from "../images/service_img_3.jpg";
-import service_img_4 from "../images/service_img_4.jpg";
+
 
 
 const points = [
   {
-    title: "Strategic Collaboration",
+    title: "Digital Marketing",
     text: "Our diverse skill set and competency pool have allowed us to effectively establish strategic alliances with a range of businesses in various industries",
     img: collaboration_img,
     layout: "normal",
@@ -41,43 +38,7 @@ const points = [
   },
 ];
 
-const services = [
-{
-  title: "Digital Marketing Consultancy Services", 
-  text: ["Our diverse skill set and competency pool have allowed us to effectively establish strategic alliances with a range of businesses in various industries. Among them are:"], 
-  highlights: ["Digital Marketing Consultancy Service", "Search Engine Optimization (SEO)", "Content Marketing", "Social Media Marketing", "Pay-Per-Click (PPC) advertising", "Email Marketing", "Analytics and Reporting", "Digital strategy consulting"], 
-  image: service_img_1,
-  layout: "reverse",
-  bgColor: "#CACCCB", 
-  color: "#141416"
-},
-{
-  title: "Business Development", 
-  text: ["From small businesses to large global conglomerates, we can assist you in building long-term value for your enterprise through partnerships, markets, and customers. We can even assist you in \"solidifying\" and \"codifying\" corporate initiatives to increase your customer base in unconventional business environments. We accomplish this by:"], 
-  highlights: ["Figuring out the several ways to reach our client's market, their leverage points, and provide early market feedback to their internal team.", "Giving quantifiable information to ascertain the company's goals and areas of strength.", "Establishing a framework of support.", ], 
-  image: service_img_2,
-  layout: "normal",
-  bgColor: "#1E1A0E", 
-  color: "white"
-},
-{
-  title: "University & Higher Education Admissions", 
-  text: ["You may be eligible for these schemes if you are older than 16 but under 60 and \"settled\" in the UK.", "Regardless of your present academic standing, there are daytime, evening, and weekend programmes available (2 days a week).", "Available spots for FUNDED ACADEMIC PROGRAMMES that lead to MAINTENANCE LOAN + QUALIFICATIONS [Dip., HND, BA, BSc, LLB, MA, Msc, or MBA]? (for a maximum of £50,000)"], 
-  image: service_img_3,
-  layout: "reverse",
-  bgColor: "#6D352E", 
-  color: "white"  
-},
-{
-  title: "Cleaning Services", 
-  text: ["We offer a wide range of every day and highly specialised cleaning services for home, business and mass sites. We also provide security officers for all types of businesses and projects, large and small.", "We specialize in Industrial, Public Transportation, Hostel and Daily Cleaning. Based on our track record we have provided exceptional, reliable and round the clock services."],
-  image: service_img_4,
-  layout: "normal",
-  bgColor: "#0B1B1E", 
-  color: "white"
-},
 
-]
 ---
 
 <Layout>
@@ -106,41 +67,6 @@ const services = [
   </section>
 
   <Overview />
-  
-  <div class="empty_space"></div>
-  <section class="services">
-    <div id="digital_marketing" class="px">
-    <TitleText title = "Expertise and Services" />
-    {
-     services.map((service) => (
-      <div class={`flex ${service.layout === "normal" ? "" : "flex_reverse"}`}>
-        <div class="flex_child">
-          <div class="flex_texts flex_texts_with_bg" style={`color: ${service.color}; background: ${service.bgColor}` }>
-          <h4>{service.title}</h4>
-            {service.text.map(textEl => (
-              <p>{textEl}</p>
-            ))}
-            {service.highlights && 
-              <ul>
-              {service.highlights && service.highlights.map((highlightEl) => (
-                <li>{highlightEl}</li>
-              ))}
-              </ul>
-              }
-            </div>
-        </div>
-        <div class="flex_child">
-          <div class="flex_image">
-            <Image src={service.image} alt={service.title} />
-          </div>
-        </div>
-      </div>
-     )) 
-    }
-    </div>
-  </section>
-
-  <div class="empty_space"></div>
   <AboutUs />
   
   <div class="empty_space"></div>

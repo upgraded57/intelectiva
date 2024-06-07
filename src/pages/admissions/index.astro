@@ -1,0 +1,314 @@
+---
+import "./admissions.css";
+
+// Components
+import Layout from "../../layouts/Layout.astro";
+import SharedHero from "../../components/shared_hero/SharedHero.astro";
+import TitleText from "../../components/title_text/TitleText.astro";
+import Footer from "../../components/footer/Footer.astro";
+
+// Images
+import admission_img from "../../images/admission_img.jpg";
+import accent_img from "../../images/admission_accent_img.jpg";
+import { Image } from "astro:assets";
+
+const programs_pills = [
+  "hnc/hnd programmes",
+  "customised degree programmes (3 years)",
+  "prior to masters",
+  "part-time and full-time postgraduate courses",
+  "courses in professional education",
+  "admissions to universities and further education",
+  "four years foundational degrees",
+  "higher education leves (part-time and full-time)",
+];
+
+const programs = [
+  {
+    title: "Foundation Degrees (4 Years)",
+    courses: [
+      "BSc (Hons) Construction Management with Foundation Year",
+      "BSc (Hons) Business and Hospitality Management with Foundation Year",
+      "BSc (Hons) Business and Tourism Management with Foundation",
+      "BSc (Hons) Business and Healthcare Management with Foundation Year",
+      "BSc (Hons) Health and Social Care with Foundation Year (Evening and Weekend delivery)",
+      "BSc (Hons) Finance and Accounting with Foundation Year",
+      "BA (Hons) Business with Foundation Year",
+      "BSc (Hons) Business and Human Resource Management with Foundation Year",
+      "BSc (Hons) Business and Law with Foundation Year",
+      "BA (Hons) Business (Marketing) with Foundation Year",
+      "BSc (Hons) Business and Marketing with Foundation Year",
+      "BSc (Hons) International Business Management with Foundation Year (Evening and Weekend delivery)",
+      "Foundation in Design and creative Business",
+      "BA (Hons) Criminology and Psychology with Foundation Year",
+      "BA (Hons) Healthcare Management with Foundation Year",
+      "BSc (Hons) Accounting and Finance with Foundation Year",
+      "BSc (Hons) Computing with Foundation Year",
+      "LLB (Hons) with Qualifying Status with Foundation Year",
+      "BA (Hons) Business Management and Sustainability with Foundation Year",
+    ],
+  },
+  {
+    title: "Top-Up Degrees (Full Time & Part Time)",
+    courses: [
+      "BA (Hons) Business Top-Up (day and evening)",
+      "BA (Hons) Global Business Management Top Up (day and evening)",
+      "BA (Hons) Healthcare Management Top-Up (day and evening)",
+      "BSc (Hons) Nursing (Top-Up)",
+      "BSc (Hons) Health and Social Care: Practice Development Top Up (day and evening)",
+      "BSc (Hons) Computing (Top-Up)",
+    ],
+  },
+  {
+    title: "Standard Degrees (3 Years)",
+    courses: [
+      "BA (Hons) Business",
+      "BA (Hons) Business Management",
+      "BA (Hons) Business Management and Sustainability",
+      "BA (Hons) Business (Marketing)",
+      "BSc (Hons) Business and Marketing",
+      "BSc (Hons) International Business Management",
+      "BSc (Hons) International Business Management (Evening and Weekend delivery)",
+      "BSc (Hons) Business and Tourism",
+      "BSc (Hons) Business and Human Resource Management",
+      "LLB (Hons) Law",
+      "LLB (Hons) with Qualifying Status",
+      "BSc (Hons) Business and Law",
+      "BSc (Hons) Health and Social Care",
+      "BSc (Hons) Business and Events Management",
+      "BSc (Hons) Business and Hospitality Management",
+      "BSc (Hons) International Tourism and Hospitality Management",
+      "BSc (Hons) Business and Healthcare Management",
+      "BSc (Hons) Health and Social Care (Evening and Weekend delivery)",
+      "BSc (Hons) Finance and Accounting",
+      "BA (Hons) Fashion",
+      "BA (Hons) Fashion Management and Marketing",
+      "BA (Hons) Fashion Media and Promotion",
+      "BA (Hons) Graphic Design",
+      "BA (Hons) Hospitality Management",
+      "BA (Hons) Illustration",
+      "BA (Hons) Criminology and Psychology",
+      "BA (Hons) Healthcare Management",
+      "BSc (Hons) Accounting and Finance",
+      "BSc (Hons) Computing",
+      "Chartered Manager Degree Apprenticeship - BA (Hons) Business Management (CMI)",
+    ],
+  },
+];
+---
+
+<Layout>
+  <SharedHero
+    bg={admission_img}
+    heading="Higher Education Advisory"
+    subheading="University & Higher Education Admissions January/February/September Intake"
+  />
+
+  <div class="empty_space"></div>
+  <section class="px">
+    <div class="summary">
+      <p>
+        Available spots for FUNDED ACADEMIC PROGRAMMES that lead to MAINTENANCE
+        LOAN + QUALIFICATIONS [Dip., HND, BA, BSc, LLB, MA, Msc, or MBA]? (for a
+        maximum of £50,000)
+      </p>
+
+      <p>
+        You may be eligible for these schemes if you are older than 16 but under
+        60 and "settled" in the UK.
+      </p>
+
+      <p>
+        Regardless of your present academic standing, there are daytime,
+        evening, and weekend programmes available (2 days a week).
+      </p>
+
+      <p>
+        Open up a wider horizon. The times are changing, and squandered
+        opportunities might never be found again.
+      </p>
+    </div>
+  </section>
+
+  <div class="empty_space"></div>
+  <section class="px">
+    <div class="programs">
+      {
+        programs_pills.map((program) => (
+          <span class="program_pill">{program}</span>
+        ))
+      }
+    </div>
+  </section>
+
+  <div class="empty_space"></div>
+  <div class="accent_img">
+    <Image src={accent_img} alt="Intelectiva - Higher Education Advisory" />
+  </div>
+
+  <div class="empty_space"></div>
+  <section class="px">
+    {
+      programs.map((program) => (
+        <>
+          <TitleText title={program.title} />
+          <ul class="course_list">
+            {program.courses.map((course) => (
+              <li>{course}</li>
+            ))}
+          </ul>
+          <div class="empty_space" />
+        </>
+      ))
+    }
+  </section>
+
+  <section class="px">
+    <TitleText title="Pre-Assessment Form" />
+    <form id="pre_assessment_form">
+      <div class="form_row">
+        <div class="form_field">
+          <label for="surname">
+            <p>surname</p>
+            <input type="text" name="surname" id="surname" />
+          </label>
+        </div>
+        <div class="form_field">
+          <label for="other_names">
+            <p>other_names</p>
+            <input type="text" name="other_names" id="other_names" />
+          </label>
+        </div>
+      </div>
+
+      <div class="form_row">
+        <div class="form_field">
+          <label for="title">
+            <p>title (mr/mrs/ms/miss)</p>
+            <input type="text" name="title" id="title" />
+          </label>
+        </div>
+        <div class="form_field">
+          <label for="email">
+            <p>email address</p>
+            <input type="email" name="email" id="email" />
+          </label>
+        </div>
+      </div>
+
+      <div class="form_row">
+        <div class="form_field">
+          <label for="phone">
+            <p>phone number</p>
+            <input type="text" inputmode="tel" name="phone" id="phone" />
+          </label>
+        </div>
+        <div class="form_field">
+          <label for="dob">
+            <p>date of birth</p>
+            <input type="date" name="dob" id="dob" />
+          </label>
+        </div>
+      </div>
+
+      <div class="form_row">
+        <div class="form_field">
+          <label for="nationality">
+            <p>nationality</p>
+            <input type="text" name="nationality" id="nationality" />
+          </label>
+        </div>
+        <div class="form_field">
+          <label for="uk_resident">
+            <p>have you lived in the uk for at least 3 years?</p>
+            <input type="text" name="uk_resident" id="uk_resident" />
+          </label>
+        </div>
+      </div>
+
+      <div class="form_row">
+        <div class="form_field">
+          <label for="address">
+            <p>current address</p>
+            <input type="text" name="address" id="address" />
+          </label>
+        </div>
+        <div class="form_field">
+          <label for="highest_academic_qualification">
+            <p>highest academic qualification</p>
+            <input
+              type="text"
+              name="highest_academic_qualification"
+              id="highest_academic_qualification"
+            />
+          </label>
+        </div>
+      </div>
+
+      <div class="form_row">
+        <div class="form_field">
+          <label for="prpgram_of_interest">
+            <p>prpgram of interest</p>
+            <input
+              type="text"
+              name="prpgram_of_interest"
+              id="prpgram_of_interest"
+            />
+          </label>
+        </div>
+        <div class="form_field">
+          <label for="courses_of_interest">
+            <p>specific course(s) of interes</p>
+            <input
+              type="text"
+              name="courses_of_interest"
+              id="courses_of_interest"
+            />
+          </label>
+        </div>
+      </div>
+
+      <div class="checkbox">
+        <label for="terms_consent">
+          <input
+            type="checkbox"
+            name="terms_consent"
+            id="terms_consent"
+            required
+          />
+          <p>
+            I hereby permit Intelectiva ltd to use the provided information to
+            source an academic program for me
+          </p>
+        </label>
+      </div>
+
+      <div class="checkbox">
+        <label for="newsletter_consent">
+          <input
+            type="checkbox"
+            name="newsletter_consent"
+            id="newsletter_consent"
+          />
+          <p>Please send me more Information</p>
+        </label>
+      </div>
+
+      <button type="submit"> submit form </button>
+    </form>
+  </section>
+
+  <div class="empty_space"></div>
+  <Footer />
+</Layout>
+
+<script>
+  const preAssessmentForm = document.getElementById("pre_assessment_form");
+
+  preAssessmentForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const formData = Object.fromEntries(new FormData(preAssessmentForm));
+
+    console.log(formData);
+  });
+</script>

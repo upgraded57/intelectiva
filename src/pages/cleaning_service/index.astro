@@ -1,0 +1,47 @@
+---
+import "../services.css";
+// Components
+import { Image } from "astro:assets";
+import Footer from "../../components/footer/Footer.astro";
+
+// Images
+import Layout from "../../layouts/Layout.astro";
+
+const services = [
+  {
+    title: "Cleaning Service",
+    texts: [
+      "We offer a wide range of every day and highly specialised cleaning services for home, business and mass sites. We also provide security officers for all types of businesses and projects, large and small.",
+      "We specialize in Industrial, Public Transportation, Hostel and Daily Cleaning. Based on our track record we have provided exceptional, reliable and round the clock services.",
+    ],
+    bgColor: "#0B1B1E",
+    color: "white",
+  },
+];
+---
+
+<Layout>
+  <div class="service_hero">
+    <div class="service_hero_bg">
+      <Image
+        src="https://images.unsplash.com/photo-1421940943431-d392fcc1079f?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt={services[0].title}
+        width={1000}
+        height={600}
+      />
+    </div>
+    <div class="service_hero_text">
+      {services[0].title}
+    </div>
+  </div>
+  <div
+    class="service_content"
+    style={`background: ${services[0].bgColor}; color: ${services[0].color}`}
+  >
+    <div class="px">
+      {services[0].texts.map((text) => <p>{text}</p>)}
+    </div>
+  </div>
+
+  <Footer />
+</Layout>

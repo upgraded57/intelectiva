@@ -24,21 +24,6 @@
   border-radius: 20px;
 }
 
-.services p {
-  margin-bottom: 20px;
-}
-
-.services ul {
-  list-style: disc !important;
-  padding-inline: 20px;
-}
-
-.services .flex .flex_child .flex_image {
-  max-height: 500px;
-  overflow: hidden;
-  border-radius: 20px;
-}
-
 .flex_texts_with_bg {
   padding: 20px;
   border-radius: 20px;
@@ -61,9 +46,5 @@
 
   .flex .flex_child h4 {
     margin-bottom: 10px;
-  }
-
-  .services .flex .flex_child .flex_image {
-    max-height: 300px;
   }
 }

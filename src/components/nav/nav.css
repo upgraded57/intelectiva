@@ -9,7 +9,7 @@ nav {
   top: 0;
   width: 100vw;
   z-index: 1000;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   color: white;
 }
 
@@ -65,7 +65,38 @@ nav::before {
   display: none;
 }
 
-@media screen and (max-width: 1100px) {
+#services {
+  position: relative;
+}
+
+.sub_tree {
+  position: absolute;
+  display: none;
+  min-width: max-content;
+  width: 90%;
+  height: max-content;
+  padding-block: 0;
+  border: 1px solid var(--dark-blue-clr);
+  border-radius: 20px;
+  padding: 10px 20px;
+  box-shadow: 0 0 10px rgba(1, 60, 93, 0.2);
+  background: white;
+  color: var(--dark-blue-clr);
+}
+
+.sub_tree.active {
+  display: block;
+}
+
+.service_link {
+  border: none !important;
+}
+
+.service_link a {
+  border: none;
+}
+
+@media screen and (max-width: 768px) {
   .logo img {
     width: 200px;
   }
@@ -111,5 +142,11 @@ nav::before {
 
   .burger {
     display: block;
+  }
+
+  .sub_tree {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 70px;
   }
 }

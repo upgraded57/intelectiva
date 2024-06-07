@@ -12,13 +12,34 @@ const navLinks = [
     title: "Home",
   },
   {
-    path: "#digital_marketing",
-    title: "Digital Marketing",
+    services: [
+      {
+        path: "digital_marketing",
+        title: "Digital Marketing",
+      },
+
+      {
+        path: "business_development",
+        title: "Business Development",
+      },
+
+      {
+        path: "education_consultancy",
+        title: "Education Consultancy",
+      },
+
+      {
+        path: "admissions",
+        title: "Higher Education Advisory",
+      },
+
+      {
+        path: "cleaning_service",
+        title: "Cleaning Service",
+      },
+    ],
   },
-  {
-    path: "admissions",
-    title: "Higher Education Advisory",
-  },
+
   {
     path: "recruitment",
     title: "Recruitment",
@@ -50,11 +71,34 @@ const navLinks = [
       </div>
     </div>
     {
-      navLinks.map((navlink) => (
-        <li>
-          <a href={navlink.path}> {navlink.title} </a>
-        </li>
-      ))
+      navLinks.map((navlink) => {
+        if (!navlink.services) {
+          return (
+            <li>
+              <a href={navlink.path}> {navlink.title} </a>
+            </li>
+          );
+        } else {
+          return (
+            <>
+              <li id="services">
+                <a href="#">Services</a>
+                <ul class="sub_tree" id="sub_tree">
+                  {navLinks.map(
+                    (link) =>
+                      link.services &&
+                      link.services.map((service) => (
+                        <li class="service_link">
+                          <a href={service.path}>{service.title}</a>
+                        </li>
+                      ))
+                  )}
+                </ul>
+              </li>
+            </>
+          );
+        }
+      })
     }
   </ul>
   <div class="burger">
@@ -67,6 +111,8 @@ const navLinks = [
   const burger_close = document.querySelector(".burger_close_btn");
   const nav = document.querySelector("nav ul");
   const navLinks = nav.querySelectorAll("li");
+  const servicesToggle = document.getElementById("services");
+  const servicesTree = document.getElementById("sub_tree");
 
   // toggle mobile nav
   burger.addEventListener("click", () => {
@@ -75,16 +121,28 @@ const navLinks = [
 
   burger_close.addEventListener("click", () => {
     nav.classList.remove("active");
+    if (servicesTree.classList.contains("active")) {
+      servicesTree.classList.remove("active");
+    }
   });
 
   // Close mobile nav on each nav link click
   navLinks.forEach((navLink) => {
     navLink.addEventListener("click", () => {
-      if (nav.classList.contains("active")) nav.classList.remove("active");
+      if (navLink.id !== "services") {
+        if (nav.classList.contains("active")) nav.classList.remove("active");
+      }
     });
   });
 
   window.addEventListener("resize", () => {
     if (window.innerWidth > 768) nav.classList.remove("active");
+    if (window.innerWidth > 768) servicesTree.classList.remove("active");
+  });
+
+  // toggle services tree
+
+  servicesToggle.addEventListener("click", () => {
+    servicesTree.classList.toggle("active");
   });
 </script>
