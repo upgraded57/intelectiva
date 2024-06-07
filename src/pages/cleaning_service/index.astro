@@ -3,9 +3,10 @@ import "../services.css";
 // Components
 import { Image } from "astro:assets";
 import Footer from "../../components/footer/Footer.astro";
+import Layout from "../../layouts/Layout.astro";
 
 // Images
-import Layout from "../../layouts/Layout.astro";
+import cleaner_img from "../../images/cleaner_img.jpeg";
 
 const services = [
   {
@@ -24,7 +25,7 @@ const services = [
   <div class="service_hero">
     <div class="service_hero_bg">
       <Image
-        src="https://images.unsplash.com/photo-1421940943431-d392fcc1079f?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        src={cleaner_img}
         alt={services[0].title}
         width={1000}
         height={600}
